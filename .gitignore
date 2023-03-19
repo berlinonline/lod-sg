@@ -1,6 +1,7 @@
 /data/temp
 Gemfile.lock
-.jekyll_cache
+_site/
+.jekyll-cache/
 .vscode
 _includes/cbds
 venv/
