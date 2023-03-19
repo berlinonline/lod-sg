@@ -1,0 +1,24 @@
+baseurl: "/lod-sg" # the subpath of your site, e.g. /blog
+url: "https://berlinonline.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+true_url: "https://berlinonline.github.io"
+
+dataset_url: "/lod-sg/"
+dataset_breadcrumb: "Datensatz"
+cbd_folder: "cbds/"
+
+exclude:
+    - bin/
+    - data/
+    - conf/
+    - README.md
+    - Makefile
+plugins:
+    - jekyll-rdf
+
+# Jekyll RDF settings
+jekyll_rdf:
+    path: "data/temp/all.nt"
+    default_template: "default"
+    class_template_mappings:
+        "http://rdfs.org/ns/void#Dataset": "dataset"
+        "https://schema.org/Organization": "organization"
