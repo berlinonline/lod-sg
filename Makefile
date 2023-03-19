@@ -1,6 +1,6 @@
 data/temp/void.nt: data/temp
 	@echo "converting void.ttl to $@ ..."
-	@rapper -i turtle void.ttl > $@
+	@riot void.ttl > $@
 
 # This target creates the RDF file that serves as the input to the static site generator.
 # All data should be merged in this file. This should include at least the VOID dataset
