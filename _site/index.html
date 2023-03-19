@@ -1,0 +1,539 @@
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>LOD-SG-Beispiel-Datensatz</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/lod-sg/assets/css/style.css" />
+</head>
+<html>
+  <head>
+    
+<script type="application/ld+json">
+  [
+  {
+    "@id": "https://berlinonline.github.io/lod-sg/",
+    "@type": [
+      "http://rdfs.org/ns/void#Dataset"
+    ],
+    "http://purl.org/dc/terms/created": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2022-12-31"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@language": "de",
+        "@value": "Dieser Datensatz beinhaltet Beispieldaten f\u00fcr das LOD-SG-Projekt (LOD Site Generator)."
+      },
+      {
+        "@language": "en",
+        "@value": "This dataset contains example data for the LOD-SG project (LOD Site Generator)."
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/modified": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2023-03-19"
+      }
+    ],
+    "http://purl.org/dc/terms/publisher": [
+      {
+        "@id": "https://berlinonline.github.io/lod-sg/berlinonline"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "de",
+        "@value": "LOD-SG-Beispiel-Datensatz"
+      },
+      {
+        "@language": "en",
+        "@value": "LOD-SG Example Dataset"
+      }
+    ],
+    "http://rdfs.org/ns/void#dataDump": [
+      {
+        "@id": "https://github.com/berlinonline/lod-sg/data/lod-example.ttl"
+      }
+    ],
+    "http://rdfs.org/ns/void#feature": [
+      {
+        "@id": "http://www.w3.org/ns/formats/Turtle"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/homepage": [
+      {
+        "@id": "https://github.com/berlinonline/lod-sg"
+      }
+    ]
+  }
+]
+</script>
+  </head>
+  <body>
+    
+
+
+<header class="text-bg-secondary">
+  <a href="http://localhost:4000/lod-sg/" class="link-unstyled">
+    <h1 class="resource-title">
+      <i class="bi bi-database"></i>
+      LOD-SG-Beispiel-Datensatz
+      <i class="bi bi-link-45deg permalink"></i>
+    </h1>
+  </a>
+</header>
+    <div class="container">
+      <div class="row breadcrumbs">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                Datensatz
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Dieser Datensatz beinhaltet Beispieldaten für das LOD-SG-Projekt (LOD Site Generator).</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-9 col-sm-12">
+          <table class="table table-striped align-middle">
+            <tbody>
+              
+              
+                <tr>
+                  <td>zuerst erstellt am:</td>
+                  <td>2022-12-31</td>
+                </tr>
+              
+              
+              
+                <tr>
+                  <td>zuletzt geändert am:</td>
+                  <td>2023-03-19</td>
+                </tr>
+              
+              
+              
+                <tr>
+                  <td>Veröffentlichende Stelle:</td>
+                  <td>
+                    <a href="/lod-sg/berlinonline">
+                      BerlinOnline Stadtportal GmbH & Co. KG
+                    </a>
+                  </td>
+                </tr>
+              
+              
+              
+                <tr>
+                  <td>Homepage:</td>
+                  <td>
+                    <a href="https://github.com/berlinonline/lod-sg">
+                      https://github.com/berlinonline/lod-sg
+                    </a>
+                  </td>
+                </tr>
+              
+              
+              
+                <tr>
+                  <td>Datensatz-Download:</td>
+                  <td>
+                    <a href="https://github.com/berlinonline/lod-sg/data/lod-example.ttl">
+                      https://github.com/berlinonline/lod-sg/data/lod-example.ttl
+                    </a>
+                  </td>
+                </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div>
+  <p>
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#local_graph_content" role="button" aria-expanded="false" aria-controls="local_graph_content">
+      Toggle Local Graph
+    </a>
+  </p>
+  <div class="collapse" id="local_graph_content">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-statements-tab" data-bs-toggle="tab" data-bs-target="#statements-tab" type="button" role="tab" aria-controls="statements-tab" aria-selected="true">Statements</button>
+        <button class="nav-link" id="nav-graph-tab" data-bs-toggle="tab" data-bs-target="#graph-tab" type="button" role="tab" aria-controls="graph-tab" aria-selected="false">Graph</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      
+      
+      <div class="tab-pane fade show active" id="statements-tab" role="tabpanel" aria-labelledby="nav-statements-tab" tabindex="0">
+        <div class="container">
+          <div class="row statements-table statements-table-subject">
+            <div class="col-12">
+              <h5>Statements with <a href="/lod-sg/"  target="_blank">lodsg:</a>
+ as subject</h5>
+              <div class="card">            
+                
+
+<div class="table-responsive">
+  <table class="table table-striped align-middle table-sm">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Predicate</th>
+        <th>Object</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      
+        <tr>
+          
+          
+            
+              <td rowspan="12"><strong><a href="/lod-sg/"  target="_blank">lodsg:</a>
+</strong></td>
+            
+          
+          
+          <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"  target="_blank">rdf:type</a>
+</td>
+          
+          
+            
+              
+                <td>
+                  <a href="http://rdfs.org/ns/void#Dataset"  target="_blank">void:Dataset</a>
+
+                </td> 
+              
+            
+          
+        </tr>
+      
+        <tr>
+          
+          
+            
+          
+          
+          <td><a href="http://purl.org/dc/terms/title"  target="_blank">dct:title</a>
+</td>
+          
+          
+            <td>
+              "LOD-SG-Beispiel-Datensatz"
+            </td>
+          
+        </tr>
+      
+        <tr>
+          
+          
+            
+          
+          
+          <td><a href="http://purl.org/dc/terms/title"  target="_blank">dct:title</a>
+</td>
+          
+          
+            <td>
+              "LOD-SG Example Dataset"
+            </td>
+          
+        </tr>
+      
+        <tr>
+          
+          
+            
+          
+          
+          <td><a href="http://purl.org/dc/terms/description"  target="_blank">dct:description</a>
+</td>
+          
+          
+            <td>
+              "Dieser Datensatz beinhaltet Beispieldaten für das LOD-SG-Projekt (LOD Site Generator)."
+            </td>
+          
+        </tr>
+      
+        <tr>
+          
+          
+            
+          
+          
+          <td><a href="http://purl.org/dc/terms/description"  target="_blank">dct:description</a>
+</td>
+          
+          
+            <td>
+              "This dataset contains example data for the LOD-SG project (LOD Site Generator)."
+            </td>
+          
+        </tr>
+      
+        <tr>
+          
+          
+            
+          
+          
+          <td><a href="http://purl.org/dc/terms/created"  target="_blank">dct:created</a>
+</td>
+          
+          
+            <td>
+              "2022-12-31"
+            </td>
+          
+        </tr>
+      
+        <tr>
+          
+          
+            
+          
+          
+          <td><a href="http://purl.org/dc/terms/modified"  target="_blank">dct:modified</a>
+</td>
+          
+          
+            <td>
+              "2023-03-19"
+            </td>
+          
+        </tr>
+      
+        <tr>
+          
+          
+            
+          
+          
+          <td><a href="http://purl.org/dc/terms/publisher"  target="_blank">dct:publisher</a>
+</td>
+          
+          
+            
+              
+                <td>
+                  <a href="/lod-sg/berlinonline"  target="_blank">lodsg:berlinonline</a>
+
+                </td> 
+              
+            
+          
+        </tr>
+      
+        <tr>
+          
+          
+            
+          
+          
+          <td><a href="http://purl.org/dc/terms/license"  target="_blank">dct:license</a>
+</td>
+          
+          
+            
+              
+                <td>
+                  <a href="https://creativecommons.org/licenses/by/4.0/"  target="_blank">https://creativecommons.org/licenses/by/4.0/</a>
+
+                </td> 
+              
+            
+          
+        </tr>
+      
+        <tr>
+          
+          
+            
+          
+          
+          <td><a href="http://xmlns.com/foaf/0.1/homepage"  target="_blank">http://xmlns.com/foaf/0.1/homepage</a>
+</td>
+          
+          
+            
+              
+                <td>
+                  <a href="https://github.com/berlinonline/lod-sg"  target="_blank">https://github.com/berlinonline/lod-sg</a>
+
+                </td> 
+              
+            
+          
+        </tr>
+      
+        <tr>
+          
+          
+            
+          
+          
+          <td><a href="http://rdfs.org/ns/void#dataDump"  target="_blank">void:dataDump</a>
+</td>
+          
+          
+            
+              
+                <td>
+                  <a href="https://github.com/berlinonline/lod-sg/data/lod-example.ttl"  target="_blank">https://github.com/berlinonline/lod-sg/data/lod-example.ttl</a>
+
+                </td> 
+              
+            
+          
+        </tr>
+      
+        <tr>
+          
+          
+            
+          
+          
+          <td><a href="http://rdfs.org/ns/void#feature"  target="_blank">void:feature</a>
+</td>
+          
+          
+            
+              
+                <td>
+                  <a href="http://www.w3.org/ns/formats/Turtle"  target="_blank">http://www.w3.org/ns/formats/Turtle</a>
+
+                </td> 
+              
+            
+          
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+              </div>
+            </div>
+          </div>
+          <div class="row statements-table statements-table-object">
+            <div class="col-12">
+              <h5>Statements with <a href="/lod-sg/"  target="_blank">lodsg:</a>
+ as object</h5>
+              <div class="card">
+                
+
+<div class="table-responsive">
+  <table class="table table-striped align-middle table-sm">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Predicate</th>
+        <th>Object</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      
+    </tbody>
+  </table>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+      <div class="tab-pane fade" id="graph-tab" role="tabpanel" aria-labelledby="nav-graph-tab" tabindex="0">
+        
+        
+
+<script src="https://unpkg.com/mermaid@8.9/dist/mermaid.min.js"></script>
+<script src="/lod-sg/assets/js/mermaid_delayed_loader.js"></script>
+<pre class="mermaid">
+    graph LR
+    
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|rdf:type|http://rdfs.org/ns/void#Dataset([void:Dataset])
+                click http://rdfs.org/ns/void#Dataset "http://rdfs.org/ns/void#Dataset" "Link"
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|dct:title|id2[LOD-SG-Beispiel-Datensatz]
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|dct:title|id3[LOD-SG Example Dataset]
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|dct:description|id4[Dieser Datensatz beinhaltet Beispieldaten für das LOD-SG-Projekt (LOD Site Generator).]
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|dct:description|id5[This dataset contains example data for the LOD-SG project (LOD Site Generator).]
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|dct:created|id6[2022-12-31]
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|dct:modified|id7[2023-03-19]
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|dct:publisher|https://berlinonline.github.io/lod-sg/berlinonline([lodsg:berlinonline])
+                click https://berlinonline.github.io/lod-sg/berlinonline "https://berlinonline.github.io/lod-sg/berlinonline" "Link"
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|dct:license|https://creativecommons.org/licenses/by/4.0/([https://creativecommons.org/licenses/by/4.0/])
+                click https://creativecommons.org/licenses/by/4.0/ "https://creativecommons.org/licenses/by/4.0/" "Link"
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|http://xmlns.com/foaf/0.1/homepage|https://github.com/berlinonline/lod-sg([https://github.com/berlinonline/lod-sg])
+                click https://github.com/berlinonline/lod-sg "https://github.com/berlinonline/lod-sg" "Link"
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|void:dataDump|https://github.com/berlinonline/lod-sg/data/lod-example.ttl([https://github.com/berlinonline/lod-sg/data/lod-example.ttl])
+                click https://github.com/berlinonline/lod-sg/data/lod-example.ttl "https://github.com/berlinonline/lod-sg/data/lod-example.ttl" "Link"
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+        https://berlinonline.github.io/lod-sg/([lodsg:])
+        -->|void:feature|http://www.w3.org/ns/formats/Turtle([http://www.w3.org/ns/formats/Turtle])
+                click http://www.w3.org/ns/formats/Turtle "http://www.w3.org/ns/formats/Turtle" "Link"
+        click https://berlinonline.github.io/lod-sg/ "https://berlinonline.github.io/lod-sg/" "Link"
+    style https://berlinonline.github.io/lod-sg/ fill:#111,stroke:#333,stroke-width:4px,color:#eee
+</pre>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-bg-secondary">
+  <ul class="list-unstyled">
+    <li>
+      <a href="" class="link-light">Impressum</a>
+    </li>
+  </ul>
+</footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
