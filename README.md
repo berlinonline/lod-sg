@@ -46,8 +46,6 @@ $ . venv/bin/activate
 (venv) $ pip install -r requirements.txt
 ```
 
-- The `riot` command line tool that comes with [Apache Jena](https://jena.apache.org). Install by downloading the latest binary distribution, put it in a location such as `/usr/local/apache-jena` and then add `/usr/local/apache-jena/bin` to your `PATH`.
-
 ## Using the Site Generator
 
 To generate a new static site for your dataset, you need to perform the following steps:

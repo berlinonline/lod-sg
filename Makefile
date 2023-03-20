@@ -1,6 +1,6 @@
 data/temp/void.nt: data/temp
 	@echo "converting void.ttl to $@ ..."
-	@riot void.ttl > $@
+	@rdfpipe -o ntriples void.ttl > $@
 
 # This target creates the RDF file that serves as the input to the static site generator.
 # All data should be merged in this file. This should include at least the VOID dataset
@@ -8,7 +8,7 @@ data/temp/void.nt: data/temp
 # The target works by merging all prerequisites 
 data/temp/all.nt: data/temp/void.nt
 	@echo "combining $? to $@ ..."
-	@riot --output N-TRIPLE $? > $@
+	@rdfpipe -o ntriples $? > $@
 
 cbds: _includes/cbds data/temp/all.nt
 	@echo "computing concise bounded descriptions for all subjects in input data"
