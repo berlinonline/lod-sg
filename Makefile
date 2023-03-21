@@ -19,7 +19,7 @@ serve-local: data/temp/all.nt cbds
 	@echo "serving local version of static LOD site ..."
 	@bundle exec jekyll serve
 
-clean: clean-temp clean-cbds
+clean: clean-temp clean-cbds clean-jekyll
 
 clean-temp:
 	@echo "deleting temp folder ..."
@@ -36,3 +36,8 @@ _includes/cbds:
 clean-cbds:
 	@echo "deleting cbd folder ..."
 	@rm -rf _includes/cbds
+
+clean-jekyll:
+	@echo "deleting jekyll artifacts ..."
+	@rm -rf _site
+	@rm -rf .jekyll-cache
