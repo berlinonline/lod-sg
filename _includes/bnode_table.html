@@ -20,6 +20,11 @@
                             {% assign input_array = input_array_string | split: ',' %}
                             {% assign bnode_statements = input_array | sparql_query: bnode_query %}
                             {% include bnode_table.html statements=bnode_statements %}
+                            {%- comment %}There is a fundamental issue with blank nodes, in that we cannot use them
+                            as the subject in a graph pattern. That's because the BNode-Identifier is totally arbitrary.
+                            So, unfortunately, we cannot recursively call this template (with the desired result),
+                            because we cannot construct a working query. Maybe there is another way...
+                            {% endcomment -%}
                         {% endif %}
                     {% else %}
                         "{{ statement.object }}"
