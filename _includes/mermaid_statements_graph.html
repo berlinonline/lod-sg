@@ -4,22 +4,30 @@
 <script src="/lod-sg/assets/js/mermaid_delayed_loader.js"></script>
 <pre class="mermaid">
     graph LR
+    click {{ local_center }} "{{ local_center }}" "Link"
     {% for statement in statements %}
-        {{ statement.subject.iri }}([{% include prefix_label.html iri=statement.subject.iri -%}])
+        {{ statement.subject.iri }}(["{% include prefix_label.html iri=statement.subject.iri -%}"])
         -->|{% include prefix_label.html iri=statement.predicate.iri %}|
         {%- if  statement.object.iri -%}
             {%- comment %} The object is a resource, render a clickable circle {% endcomment -%}
             {%- if statement.object.iri != "" -%}
-                {{ statement.object.iri }}([{% include prefix_label.html iri=statement.object.iri -%}])
+                {{ statement.object.iri }}(["{% include prefix_label.html iri=statement.object.iri -%}"])
                 click {{ statement.object.iri }} "{{ statement.object.iri }}" "Link"
             {%- else -%}
-               id{{ forloop.index }}([ ])
-            {%- endif -%}
+                id{{ statement.object }}([ ])
+                {%- assign bnode_query = 'SELECT DISTINCT ?bnode ?predicate ?object WHERE { ?resourceUri_0 ?resourceUri_1 ?bnode . ?bnode ?predicate ?object . }' -%}
+                {%- capture input_array_string %}<{{ statement.subject.iri }}>,<{{ statement.predicate.iri }}>{% endcapture %}
+                {%- assign input_array = input_array_string | split: ',' -%}
+                {%- assign bnode_statements = input_array | sparql_query: bnode_query -%}
+                {%- include bnode_graph.html statements=bnode_statements -%}
+            {%- endif %}
         {%- else -%}
             {%- comment -%} The object is a literal, render a box. {%- endcomment -%}
-            id{{ forloop.index }}[{%- include prefix_label.html iri=statement.object %}]
+            id{{ forloop.index }}["{%- include prefix_label.html iri=statement.object %}"]
         {%- endif %}
-        click {{ statement.subject.iri }} "{{ statement.subject.iri }}" "Link"
+        {% if statement.subject.iri != local_center %}
+            click {{ statement.subject.iri }} "{{ statement.subject.iri }}" "Link"
+        {% endif %}
     {%- endfor %}
     style {{ local_center }} fill:#111,stroke:#333,stroke-width:4px,color:#eee
 </pre>
