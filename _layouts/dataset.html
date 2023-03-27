@@ -3,11 +3,8 @@ rdf_prefix_path: "conf/prefixes.sparql"
 ---
 {% assign title = page.rdf | rdf_property: "dct:title", "de" %}
 {% assign page_link = page.url | absolute_url | replace: '.html', '' %}
-{% include page_head.html title = title %}
 <html>
-  <head>
-    {% include local_graph_json_ld.html %}
-  </head>
+  {% include page_head.html title = title %}
   <body>
     {% include content_header.html title = title page_link = page_link icon = "database" %}
     <div class="container">
@@ -31,6 +28,7 @@ rdf_prefix_path: "conf/prefixes.sparql"
         <div class="col-lg-6 col-md-9 col-sm-12">
           <table class="table table-striped align-middle">
             <tbody>
+              {% include type_row.html %}
               {% assign date_created = page.rdf | rdf_property: "dct:created" %}
               {% if date_created %}
                 <tr>
@@ -78,6 +76,37 @@ rdf_prefix_path: "conf/prefixes.sparql"
                   </td>
                 </tr>
               {% endfor %}
+              {% assign licenses = page.rdf | rdf_property: "dct:license", nil, true %}
+              {% for license in licenses %}
+                <tr>
+                  <td>Lizenz:</td>
+                  <td>
+                    <a href="{{ license }}">
+                      {{ license }}
+                    </a>
+                  </td>
+                </tr>
+              {% endfor %}
+              {%  capture sources_query %}
+                SELECT ?source
+                WHERE {
+                  ?resourceUri
+                  prov:wasGeneratedBy/prov:used ?source ;
+                }
+                {% endcapture %}
+                {% assign sources = page.rdf | sparql_query: sources_query %}
+                {% if sources.size > 0 %}
+                  {% for row in sources %}
+                    <tr>
+                      <td>Quelle:</td>
+                      <td>
+                        <a href="{{ row.source }}">
+                          {{ row.source }}
+                        </a>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                {% endif %}
             </tbody>
           </table>
         </div>
