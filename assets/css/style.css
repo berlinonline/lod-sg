@@ -85,3 +85,7 @@ body .container {
     box-shadow: inherit;
     vertical-align: inherit;
 }
+
+.imprint-block {
+    margin-bottom: 30px;
+}

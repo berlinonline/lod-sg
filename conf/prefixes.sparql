@@ -7,3 +7,6 @@ PREFIX schema: <https://schema.org/>
 PREFIX void: <http://rdfs.org/ns/void#>
 PREFIX lor: <https://berlinonline.github.io/lod-berlin-lor/>
 PREFIX unit: <https://berlinonline.github.io/lod-berlin-lor/vocab/>
+PREFIX format: <http://www.w3.org/ns/formats/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX lodsg: <https://berlinonline.github.io/lod-sg/>

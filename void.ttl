@@ -2,12 +2,15 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix lodx: <https://berlinonline.github.io/lod-sg/> .
+@prefix lodsg: <https://berlinonline.github.io/lod-sg/> .
 @prefix schema: <https://schema.org/> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix datenregister: <https://datenregister.berlin.de/dataset/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-lodx:
+lodsg:
     a void:Dataset ;
     dct:title "LOD-SG-Beispiel-Datensatz"@de ;
     dct:title "LOD-SG Example Dataset"@en ;
@@ -15,16 +18,24 @@ lodx:
     dct:description """This dataset contains example data for the LOD-SG project (LOD Site Generator)."""@en ;
     dct:created "2022-12-31"^^xsd:date ;
     dct:modified "2023-03-19"^^xsd:date ;
-    dct:publisher lodx:berlinonline ;
+    dct:publisher lodsg:berlinonline ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
     foaf:homepage <https://github.com/berlinonline/lod-sg> ;
     void:dataDump <https://github.com/berlinonline/lod-sg/data/lod-example.ttl> ;
     void:feature <http://www.w3.org/ns/formats/Turtle> ;
     # void:rootResource <...> ;
     # void:exampleResource <...> ;
+    prov:wasGeneratedBy lodsg:triplification ;
 .
 
-lodx:berlinonline
+lodsg:triplification
+    a prov:Activity ;
+    rdfs:label "Triplifizierung"@de ;
+    rdfs:comment "Die Konvertierung des Quelldatensatzes in RDF"@de ;
+    prov:used datenregister:source_id ;
+.
+
+lodsg:berlinonline
     a schema:Organization ;
     schema:name "BerlinOnline Stadtportal GmbH & Co. KG"@de ;
     schema:address [
@@ -38,4 +49,93 @@ lodx:berlinonline
     schema:faxNumber "+49 30 5771180 95" ;
     schema:telephone "+49 30 2327 5530" ;
     schema:taxID "DE219483549" ;
+    schema:email <mailto:info@berlinonline.de> ;
+    schema:identifier [
+        a schema:PropertyValue ;
+        schema:propertyID "Handelsregisternummer"@de ;
+        schema:value "HRA 31951" ;
+        lodsg:registerGericht lodsg:amtsgerichtCharlottenburg ;
+    ] ;
+    lodsg:komplementaer lodsg:berlinonlineBeteiligung ;
+.
+
+lodsg:berlinonlineBeteiligung
+    a schema:Organization ;
+    schema:name "BerlinOnline Stadtportalbeteiligungsges. mbH" ;
+    schema:identifier [
+        a schema:PropertyValue ;
+        schema:propertyID "Handelsregisternummer"@de ;
+        schema:value "HRB 79077" ;
+        lodsg:registerGericht lodsg:amtsgerichtCharlottenburg ;
+    ] ;
+    schema:address [
+        a schema:PostalAddress ;
+        schema:streetAddress "Stefan-Heym-Platz 1" ;
+        schema:postalCode "10367" ;
+        schema:addressLocality "Berlin" ;
+        schema:addressCountry "DE" ;
+    ] ;
+    lodsg:managingDirector lodsg:olfDziadek, lodsg:andreasMaengel ;
+
+.
+
+lodsg:olfDziadek
+    a schema:Person ;
+    schema:name "Olf Dziadek" ;
+    schema:familyName "Dziadek" ;
+.
+
+lodsg:andreasMaengel
+    a schema:Person ;
+    schema:name "Andreas Mängel" ;
+    schema:familyName "Mängel" ;
+.
+
+lodsg:amtsgerichtCharlottenburg
+    a schema:Organization ;
+    schema:name "Amtsgericht Berlin-Charlottenburg" ;
+.
+
+lodsg:impressum
+    a lodsg:ImprintPage ;
+    schema:name "Impressum"@de ;
+    schema:name "Imprint"@en ;
+    schema:about lodsg: ;
+.
+
+# Vocabulary Terms
+
+lodsg:ImprintPage
+    a rdfs:Class ;
+    rdfs:subClassOf schema:WebPage ;
+    rdfs:label "Impressum"@de ;
+    rdfs:label "Imprint"@en ;
+    rdfs:comment "Die Impressums-Webseite einer Website"@de ;
+    rdfs:comment "A web page that shows the imprint for a site."@en ;
+.
+
+lodsg:managingDirector
+    a owl:ObjectProperty ;
+    rdfs:label "Geschäftsführen"@de ;
+    rdfs:label "managing director"@en ;
+    rdfs:comment "Der oder die Geschäftsführer*in einer Firma"@de ;
+    rdfs:comment "The managing director of a company"@en ;
+    rdfs:domain schema:Organization ;
+    rdfs:range schema:Person ;
+.
+
+lodsg:komplementaer
+    a owl:ObjectProperty ;
+    rdfs:label "Komplementär"@de ;
+    rdfs:comment "Der Komplementär einer Kommanditgesellschaft (KG)"@de ;
+    rdfs:domain schema:Organization ;
+    rdfs:range schema:Organization ;
+.
+
+lodsg:registerGericht 
+    a owl:ObjectProperty ;
+    rdfs:label "Registergericht"@de ;
+    rdfs:comment "Das Gericht, bei dem die Handelsregisternummer eingetragen ist"@de ;
+    rdfs:domain schema:PropertyValue ;
+    rdfs:range schema:Organization ;
 .
