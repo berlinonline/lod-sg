@@ -2,12 +2,15 @@
 rdf_prefix_path: "conf/prefixes.sparql"
 ---
 {% assign page_link = page.url | absolute_url | replace: '.html', '' %}
-{% assign title = page.rdf | rdf_property: "schema:name" %}
+{% assign title = page.rdf | rdf_property: "rdfs:label", "de"  %}
+{% unless title %}
+  {% assign title = page.rdf | rdf_property: "schema:name", "de"  %}
+{% endunless %}
 {% unless title %}
   {% assign title = "Unknown" %}
 {% endunless %}
-{% include page_head.html title = title %}
 <html>
+  {% include page_head.html title = title %}
   <body>
     {% include content_header.html title = title page_link = page_link icon = "circle" %}
     <div class="container">
@@ -25,6 +28,26 @@ rdf_prefix_path: "conf/prefixes.sparql"
               </li>
             </ol>
           </nav>
+        </div>
+      </div>
+      {% assign description = page.rdf | rdf_property: "rdfs:comment", "de" %}
+      {% unless description %}
+        {% assign description = page.rdf | rdf_property: "dct:description", "de" %}
+      {% endunless %}
+      {% if description %}
+        <div class="row">
+          <div class="col-12">
+            <p>{{ description }}</p>
+          </div>
+        </div>
+      {% endif %}
+      <div class="row">
+        <div class="col-lg-6 col-sm-12">
+          <table class="table table-striped align-middle">
+            <tbody>
+              {% include type_row.html %}
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="row">
