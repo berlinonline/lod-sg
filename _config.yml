@@ -18,6 +18,7 @@ plugins:
 # Jekyll RDF settings
 jekyll_rdf:
     path: "data/temp/all.nt"
+    restriction: "SELECT ?resourceUri WHERE { ?resourceUri ?predicate ?object FILTER(STRSTARTS(STR(?resourceUri), 'https://berlinonline.github.io/lod-sg')) }"
     default_template: "default"
     class_template_mappings:
         "http://rdfs.org/ns/void#Dataset": "dataset"
