@@ -6,11 +6,8 @@ rdf_prefix_path: "conf/prefixes.sparql"
 {% unless title %}
   {% assign title = "Unknown" %}
 {% endunless %}
-{% include page_head.html title = title %}
 <html>
-  <head>
-    {% include local_graph_json_ld.html %}
-  </head>
+  {% include page_head.html title = title %}
   <body>
     {% include content_header.html title = title page_link = page_link icon = "building" %}
     <div class="container">
@@ -34,6 +31,7 @@ rdf_prefix_path: "conf/prefixes.sparql"
         <div class="col-lg-6 col-sm-12">
           <table class="table table-striped align-middle">
             <tbody>
+              {% include type_row.html %}
               {% assign org_url = page.rdf | rdf_property: "schema:url" %}
               {% if org_url %}
                 <tr>
