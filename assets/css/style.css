@@ -28,6 +28,10 @@ body .container {
     margin-left: -12px;
 }
 
+.statements-table:last-of-type {
+    padding-bottom: 15px;
+}
+
 .statements-table .table-group-divider {
     border-top-color: #a9a9a9;
     border-bottom: solid 2px #a9a9a9;
