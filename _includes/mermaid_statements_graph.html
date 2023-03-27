@@ -11,8 +11,14 @@
         {%- if  statement.object.iri -%}
             {%- comment %} The object is a resource, render a clickable circle {% endcomment -%}
             {%- if statement.object.iri != "" -%}
-                {{ statement.object.iri }}(["{% include prefix_label.html iri=statement.object.iri -%}"])
-                click {{ statement.object.iri }} "{{ statement.object.iri }}" "Link"
+                {%- assign iri_id = statement.object.iri -%}
+                {%- assign mailto_check = iri_id | split:"mailto:" -%}
+                {%- if mailto_check[0] == "" -%}
+                    {%- assign iri_id = mailto_check[1] -%}
+                    {%- assign iri_id = iri_id | replace: "@", "_AT_" -%}
+                {%- endif -%}
+                {{ iri_id }}(["{% include prefix_label.html iri=statement.object.iri -%}"])
+                click {{ iri_id }} "{{ statement.object.iri }}" "Link"
             {%- else -%}
                 id{{ statement.object }}([ ])
                 {%- assign bnode_query = 'SELECT DISTINCT ?bnode ?predicate ?object WHERE { ?resourceUri_0 ?resourceUri_1 ?bnode . ?bnode ?predicate ?object . }' -%}
