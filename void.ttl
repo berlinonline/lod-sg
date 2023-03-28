@@ -13,69 +13,32 @@
 
 lodsg:
     a void:Dataset ;
-    dct:title "LOD-SG-Beispiel-Datensatz"@de ;
-    dct:title "LOD-SG Example Dataset"@en ;
-    dct:description """Dieser Datensatz beinhaltet Beispieldaten für das LOD-SG-Projekt (LOD Site Generator)."""@de ;
-    dct:description """This dataset contains example data for the LOD-SG project (LOD Site Generator)."""@en ;
+    dct:title "LOD-SG-Beispiel-Datensatz und Vokabular"@de ;
+    dct:title "LOD-SG example dataset and vocabulary"@en ;
+    dct:description """Dieser Datensatz beinhaltet Beispieldaten für das LOD-SG-Projekt (LOD Site Generator) sowie Vokabular zur Erstellung eines Impressums."""@de ;
+    dct:description """This dataset contains example data for the LOD-SG project (LOD Site Generator) as well as vocabulary for creating an imprint page."""@en ;
     dct:created "2022-12-31"^^xsd:date ;
-    dct:modified "2023-03-19"^^xsd:date ;
+    dct:modified "2023-03-28"^^xsd:date ;
     dct:publisher lodbo:berlinonline ;
     dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
     foaf:homepage <https://github.com/berlinonline/lod-sg> ;
-    # void:dataDump <https://github.com/berlinonline/lod-sg/data/lod-example.ttl> ;
     void:feature <http://www.w3.org/ns/formats/Turtle> ;
+    void:dataDump <https://raw.githubusercontent.com/berlinonline/lod-sg/main/data/static/vocab.ttl> ;
     # void:rootResource <...> ;
     # void:exampleResource <...> ;
-    prov:wasGeneratedBy lodsg:triplification ;
+    # prov:wasGeneratedBy lodsg:triplification ;
 .
 
-lodsg:triplification
-    a prov:Activity ;
-    rdfs:label "Triplifizierung"@de ;
-    rdfs:comment "Die Konvertierung des Quelldatensatzes in RDF"@de ;
-    prov:used datenregister:source_id ;
-.
+# lodsg:triplification
+#     a prov:Activity ;
+#     rdfs:label "Triplifizierung"@de ;
+#     rdfs:comment "Die Konvertierung des Quelldatensatzes in RDF"@de ;
+#     prov:used datenregister:source_id ;
+# .
 
 lodsg:impressum
     a lodsg:ImprintPage ;
     schema:name "Impressum"@de ;
     schema:name "Imprint"@en ;
     schema:about lodsg: ;
-.
-
-# Vocabulary Terms
-
-lodsg:ImprintPage
-    a rdfs:Class ;
-    rdfs:subClassOf schema:WebPage ;
-    rdfs:label "Impressum"@de ;
-    rdfs:label "Imprint"@en ;
-    rdfs:comment "Die Impressums-Webseite einer Website"@de ;
-    rdfs:comment "A web page that shows the imprint for a site."@en ;
-.
-
-lodsg:managingDirector
-    a owl:ObjectProperty ;
-    rdfs:label "Geschäftsführen"@de ;
-    rdfs:label "managing director"@en ;
-    rdfs:comment "Der oder die Geschäftsführer*in einer Firma"@de ;
-    rdfs:comment "The managing director of a company"@en ;
-    rdfs:domain schema:Organization ;
-    rdfs:range schema:Person ;
-.
-
-lodsg:komplementaer
-    a owl:ObjectProperty ;
-    rdfs:label "Komplementär"@de ;
-    rdfs:comment "Der Komplementär einer Kommanditgesellschaft (KG)"@de ;
-    rdfs:domain schema:Organization ;
-    rdfs:range schema:Organization ;
-.
-
-lodsg:registerGericht 
-    a owl:ObjectProperty ;
-    rdfs:label "Registergericht"@de ;
-    rdfs:comment "Das Gericht, bei dem die Handelsregisternummer eingetragen ist"@de ;
-    rdfs:domain schema:PropertyValue ;
-    rdfs:range schema:Organization ;
 .

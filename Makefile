@@ -12,7 +12,7 @@ data/temp/berlinonline.ttl: data/temp
 # All data should be merged in this file. This should include at least the VOID dataset
 # description and the actual data.
 # The target works by merging all prerequisites 
-data/temp/all.nt: data/temp void.ttl data/temp/berlinonline.ttl
+data/temp/all.nt: data/temp void.ttl data/temp/berlinonline.ttl data/static/vocab.ttl
 	@echo "combining $(filter-out $<,$^) to $@ ..."
 	@rdfpipe -o ntriples $(filter-out $<,$^) > $@
 
