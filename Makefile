@@ -18,7 +18,7 @@ data/temp/all.nt: data/temp void.ttl data/temp/berlinonline.ttl data/static/voca
 
 cbds: _includes/cbds data/temp/all.nt
 	@echo "computing concise bounded descriptions for all subjects in input data"
-	@python bin/compute_cbds.py --base="https://berlinonline.github.io/lod-sg"
+	@python bin/compute_cbds.py --base="https://berlinonline.github.io/lod-sg/"
 
 .PHONY: serve-local
 serve-local: data/temp/all.nt cbds
