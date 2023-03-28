@@ -1,6 +1,7 @@
 baseurl: "/lod-sg" # the subpath of your site, e.g. /blog
 url: "https://berlinonline.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-true_url: "https://berlinonline.github.io"
+true_url: "https://berlinonline.github.io" # This duplication is necessary to make relative links work when
+    # running the Jekyll-Site locally, when `url` is replaced with somehting like http://localhost:4000
 
 dataset_url: "/lod-sg/"
 dataset_breadcrumb: "Datensatz"
