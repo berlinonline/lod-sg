@@ -19,7 +19,7 @@ lodsg:
     dct:created "2022-12-31"^^xsd:date ;
     dct:modified "2023-03-19"^^xsd:date ;
     dct:publisher lodsg:berlinonline ;
-    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
     foaf:homepage <https://github.com/berlinonline/lod-sg> ;
     void:dataDump <https://github.com/berlinonline/lod-sg/data/lod-example.ttl> ;
     void:feature <http://www.w3.org/ns/formats/Turtle> ;
