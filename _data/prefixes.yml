@@ -27,3 +27,6 @@
 
 - prefix: prov
   url: http://www.w3.org/ns/prov#
+
+- prefix: lodbo
+  url: https://berlinonline.github.io/lod-berlin-bo/

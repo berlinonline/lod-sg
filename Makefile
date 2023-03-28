@@ -1,14 +1,20 @@
+berlinonline_url = https://raw.githubusercontent.com/berlinonline/lod-berlin-bo/main/data/static/berlinonline.ttl
+
 data/temp/void.nt: data/temp
 	@echo "converting void.ttl to $@ ..."
 	@rdfpipe -o ntriples void.ttl > $@
+
+data/temp/berlinonline.ttl: data/temp
+	@echo "downloading $(berlinonline_url)..."
+	@curl -s -o $@ "$(berlinonline_url)"
 
 # This target creates the RDF file that serves as the input to the static site generator.
 # All data should be merged in this file. This should include at least the VOID dataset
 # description and the actual data.
 # The target works by merging all prerequisites 
-data/temp/all.nt: data/temp/void.nt
-	@echo "combining $? to $@ ..."
-	@rdfpipe -o ntriples $? > $@
+data/temp/all.nt: data/temp void.ttl data/temp/berlinonline.ttl
+	@echo "combining $(filter-out $<,$^) to $@ ..."
+	@rdfpipe -o ntriples $(filter-out $<,$^) > $@
 
 cbds: _includes/cbds data/temp/all.nt
 	@echo "computing concise bounded descriptions for all subjects in input data"
