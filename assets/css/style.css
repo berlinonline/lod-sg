@@ -19,6 +19,11 @@ footer {
     padding-bottom: 10px;
 }
 
+.marker {
+    min-height: 10px;
+    background-color: #2D882D;
+}
+
 body .container {
     max-width: 100%;
 }
