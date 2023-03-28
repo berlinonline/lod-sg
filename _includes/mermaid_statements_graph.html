@@ -29,7 +29,7 @@
             {%- endif %}
         {%- else -%}
             {%- comment -%} The object is a literal, render a box. {%- endcomment -%}
-            id{{ forloop.index }}["{%- include prefix_label.html iri=statement.object %}"]
+            id{{ forloop.index }}["{{ statement.object | truncate: 150 | replace: '"', '#quot;' }}"]
         {%- endif %}
         {% if statement.subject.iri != local_center %}
             click {{ statement.subject.iri }} "{{ statement.subject.iri }}" "Link"

@@ -27,7 +27,7 @@
                             {% endcomment -%}
                         {% endif %}
                     {% else %}
-                        "{{ statement.object }}"
+                        "{{ statement.object | truncate: 150 }}"
                     {% endif %}
                 </td>
             </tr>

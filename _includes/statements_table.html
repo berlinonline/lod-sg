@@ -49,7 +49,7 @@
             {% endif %}
           {% else %}
             <td>
-              "{{ statement.object }}"
+              "{{ statement.object | truncate: 150 }}"
             </td>
           {% endif %}
         </tr>

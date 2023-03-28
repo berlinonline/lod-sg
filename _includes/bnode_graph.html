@@ -17,6 +17,6 @@
         {%- endif -%}
     {%- else -%}
         {%- comment -%} The object is a literal, render a box. {%- endcomment -%}
-        id{{ statement.bnode }}_{{ forloop.index }}["{%- include prefix_label.html iri=statement.object %}"]
+        id{{ statement.bnode }}_{{ forloop.index }}["{{ statement.object | truncate: 150 | replace: '"', '#quot;' }}"]
     {%- endif %}
 {% endfor -%}
