@@ -13,6 +13,8 @@ exclude:
     - conf/
     - README.md
     - Makefile
+    - Gemfile
+    - requirements.txt
 plugins:
     - jekyll-rdf
 
