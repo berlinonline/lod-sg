@@ -48,7 +48,7 @@ rdf_prefix_path: "conf/prefixes.sparql"
                 <tr>
                   <td>Veröffentlichende Stelle:</td>
                   <td>
-                    <a href="{{ publisher.page_url | relative_url }}">
+                    <a href="{{ publisher }}">
                       {{ publisher | rdf_property: "schema:name" }}
                     </a>
                   </td>
