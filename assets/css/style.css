@@ -42,13 +42,9 @@ body .container {
     border-bottom: solid 2px #a9a9a9;
 }
 
-/* #local_graph_content .tab-pane {
-    margin-top: 15px;
+.local-graph {
+    padding-top: 15px;
 }
-
-#local_graph_content .tab-pane .card {
-    margin-bottom: 15px;
-} */
 
 @media (max-width: 768px) {
     .map {
