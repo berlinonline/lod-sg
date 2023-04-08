@@ -1,9 +1,9 @@
-# LOD Browser
+# LOD Site Generator (LOD-SG)
 
-The Linked Data Browser (LOD Browser) is a tool to create a static website from and for an RDF dataset.
+The Linked Open Data Site Generator (LOD-SG) is a tool to create a static website from and for an RDF dataset.
 It uses the [Jekyll](https://jekyllrb.com) static site generator with the [Jekyll RDF](https://github.com/AKSW/jekyll-rdf) plugin to create one HTML page per RDF resource in the input graph.
-The project contains a small number of basic page templates to produce a generic website.
-By adding additional templates for specific kinds of RDF resources, LOD Browser can be the starting point for developing tailor-made sites for individual datasets.
+The project contains a number of basic page templates to produce a generic website.
+By adding additional templates for specific kinds of RDF resources, LOD-SG can be the starting point for developing tailor-made sites for individual datasets.
 
 ## Features
 
