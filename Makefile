@@ -1,3 +1,4 @@
+base_uri = https://berlinonline.github.io/lod-sg/
 berlinonline_url = https://raw.githubusercontent.com/berlinonline/lod-berlin-bo/main/data/static/berlinonline.ttl
 
 data/temp/void.nt: data/temp
@@ -18,7 +19,7 @@ data/temp/all.nt: data/temp void.ttl data/temp/berlinonline.ttl data/static/voca
 
 cbds: _includes/cbds data/temp/all.nt
 	@echo "computing concise bounded descriptions for all subjects in input data"
-	@python bin/compute_cbds.py --base="https://berlinonline.github.io/lod-sg/"
+	@python bin/compute_cbds.py --base="$(base_uri)"
 
 .PHONY: serve-local
 serve-local: data/temp/all.nt cbds
