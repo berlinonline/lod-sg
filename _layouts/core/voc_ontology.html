@@ -4,10 +4,10 @@ rdf_prefix_path: "conf/prefixes.sparql"
 {% assign title = page.rdf | rdf_property: "rdfs:label", "de" %}
 {% assign page_link = page.url | absolute_url | replace: '.html', '' %}
 <html>
-{% include page_head.html title = title %}
+{% include core/page_head.html title = title %}
 
 <body>
-    {% include content_header.html title = title page_link = page_link icon = "diagram-3" %}
+    {% include core/content_header.html title = title page_link = page_link icon = "diagram-3" %}
     <div class="container">
         <div class="row breadcrumbs">
             <div class="col-12">
@@ -34,7 +34,7 @@ rdf_prefix_path: "conf/prefixes.sparql"
             <div class="col-lg-6 col-md-9 col-sm-12">
                 <table class="table table-striped align-middle">
                     <tbody>
-                        {% include type_row.html %}
+                        {% include core/type_row.html %}
 
                         {% assign data_dumps = page.rdf | rdf_property: "void:dataDump", nil, true %}
                         {% for data_dump in data_dumps %}
@@ -74,7 +74,7 @@ rdf_prefix_path: "conf/prefixes.sparql"
                         {% if row.class_label %}
                             <a href="{{ row.class.iri | replace_first: site.true_url, "" }}">{{ row.class_label }}</a>
                         {% else %}
-                            {% include prefix_url.html iri = row.class.iri %}
+                            {% include core/prefix_url.html iri = row.class.iri %}
                         {% endif %}
                         </div>
                     {% endfor %}
@@ -108,7 +108,7 @@ rdf_prefix_path: "conf/prefixes.sparql"
                         {% if row.property_label %}
                             <a href="{{ row.property.iri | replace_first: site.true_url, "" }}">{{ row.property_label }}</a>
                         {% else %}
-                            {% include prefix_url.html iri = row.property.iri %}
+                            {% include core/prefix_url.html iri = row.property.iri %}
                         {% endif %}
                         </div>
                     {% endfor %}
@@ -146,7 +146,7 @@ rdf_prefix_path: "conf/prefixes.sparql"
                         {% if row.term_label %}
                             <a href="{{ row.term.iri | replace_first: site.true_url, "" }}">{{ row.term_label }}</a>
                         {% else %}
-                            {% include prefix_url.html iri = row.term.iri %}
+                            {% include core/prefix_url.html iri = row.term.iri %}
                         {% endif %}
                     </div>
                     {% endfor %}
@@ -156,11 +156,11 @@ rdf_prefix_path: "conf/prefixes.sparql"
         {% endif %}
         <div class="row local-graph">
             <div class="col-12">
-                {% include local_graph.html %}
+                {% include core/local_graph.html %}
             </div>
         </div>
     </div>
-    {% include content_footer.html %}
+    {% include core/content_footer.html %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
